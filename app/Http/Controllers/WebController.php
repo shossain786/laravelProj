@@ -7,6 +7,14 @@ use Illuminate\Http\Request;
 class WebController extends Controller
 {
     public function home(){
-        return view("Welcome");
+        echo asset("/");
+        return view("home");
+    }
+
+    public function about(){
+        return view("about");
+    }
+    public function contact(){
+        return view("contact");
     }
 }
