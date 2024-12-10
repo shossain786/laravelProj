@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class WebController extends Controller
 {
     public function home(){
-        echo asset("/");
+        // echo asset("/"); //it prints the path of project directory
         return view("home");
     }
 
@@ -16,5 +16,14 @@ class WebController extends Controller
     }
     public function contact(){
         return view("contact");
+    }
+
+    public function handleSubmittedData(Request $request){
+        $name = $request ->input("name");
+        $email = $request ->input(key: "email");
+        return response()->json([
+            "name"=> $name,
+            "email"=> $email
+        ]);
     }
 }
